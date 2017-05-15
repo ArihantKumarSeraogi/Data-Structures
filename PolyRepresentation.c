@@ -1,7 +1,7 @@
 //index position represent exponents and array data at that index position is the corresponding coefficient
 #include<conio.h>
 #include<stdio.h>
-
+int polyEval(int arr[],int n);
 void main()
 {
     int n;
@@ -20,4 +20,16 @@ void main()
         else
             printf("%dx^%d+",arr[i],i);
     }
+    int result=polyEval(arr,n);
+    printf("the result of the above polynomial is %d",result);
+}
+int polyEval(int arr[],int n)   // horners rule
+{
+    int x;
+    printf("Enter the value of the variable x");
+    scanf("%d",&x);
+    int result=0;
+    for (int i =n; i >=0; i--)
+			result = arr[i] + (x * result);
+		return result;
 }
